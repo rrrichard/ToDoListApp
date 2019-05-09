@@ -20,8 +20,8 @@ class AddToDoController {
     public function __invoke(Request $request, Response $response, $args)
     {
         $newTask = $request->getParsedBody();
-        $text = $newTask['add_form'];
-        $this->toDoModel->addTasks($text);
+        $newTaskText = $newTask['add_form'];
+        $this->toDoModel->addTasks($newTaskText);
         return $response->withRedirect('/');
     }
 }
