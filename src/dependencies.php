@@ -11,6 +11,8 @@ return function (App $app) {
         return new \Slim\Views\PhpRenderer($settings['template_path']);
     };
 
+    $container['HomePageController'] = new ToDo\Factories\HomePageControllerFactory();
+
     // monolog
     $container['logger'] = function ($c) {
         $settings = $c->get('settings')['logger'];
