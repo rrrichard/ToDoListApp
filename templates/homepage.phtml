@@ -1,8 +1,5 @@
 <?php
 
-namespace T
-
-
 
 ?>
 
@@ -14,16 +11,26 @@ namespace T
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello</h1>
+    <form>
     <?php
     foreach($toDoModel as $task){
-        echo $task['task'] . '<br>';
+        $list = '<input type="checkbox" >' . $task['task'] . '<br><input type="hidden" value="' . $task['id'] . '">';
+        echo $list;
     }
 
     ?>
-    <form method="post" action="admin_add.php" class="formAdd">
+        <input type="submit" name="completed">
+    </form>
+    <form method="POST" action="/add"">
         <textarea name="add_form"  required></textarea>
         <div>
             <input type="submit" name="addSubmit">
