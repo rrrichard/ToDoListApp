@@ -18,7 +18,7 @@ return [
 
         'db' => [
             'host' => 'mysql:host=192.168.20.20;',
-            'dbName' =>'dbname=top_dog',
+            'dbName' =>'dbname=to_do_list',
             'userName' =>'root',
         ]
     ],
