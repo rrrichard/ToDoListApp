@@ -23,7 +23,7 @@
     <form>
     <?php
     foreach($toDoModel as $task){
-        $list = '<input type="checkbox" >' . $task['task'] . '<br><input type="hidden" value="' . $task['id'] . '">';
+        $list = '<input type="checkbox" name="completedId">' . $task['task'] . '<br><input type="hidden" value="' . $task['id'] . '">';
         echo $list;
     }
 
