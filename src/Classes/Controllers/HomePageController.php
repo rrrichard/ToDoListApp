@@ -18,10 +18,7 @@ class HomePageController {
 
     public function __invoke($request, $response, $args)
     {
-        // TODO: Implement __invoke() method.
         $args['toDoModel'] = $this->toDoModel->getTasks();
-
         $this->renderer->render($response, 'homepage.phtml', $args);
-
     }
 }
