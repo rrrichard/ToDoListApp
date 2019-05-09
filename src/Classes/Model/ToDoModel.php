@@ -17,7 +17,9 @@ class ToDoModel {
         return $query->fetchAll();
     }
 
-    public function addTasks(){
-        $query = $this->db->prepare("INSERT INTO `to_do_list` (`task`) VALUES (:newTask); ");
+    public function addTasks($newTask){
+        $query = $this->db->prepare("INSERT INTO `task_list` (`task`) VALUES (:newTask); ");
+        $query->bindParam(':newTask', $newTask);
+        return $query->execute();
     }
 }
