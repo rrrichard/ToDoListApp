@@ -20,13 +20,16 @@
 </head>
 <body>
     <h1>Hello</h1>
+    <form>
     <?php
     foreach($toDoModel as $task){
-        $list = '<input type="checkbox">' . $task['task'] . '<br>';
+        $list = '<input type="checkbox" >' . $task['task'] . '<br><input type="hidden" value="' . $task['id'] . '">';
         echo $list;
     }
 
     ?>
+        <input type="submit" name="completed">
+    </form>
     <form method="POST" action="/add"">
         <textarea name="add_form"  required></textarea>
         <div>
