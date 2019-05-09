@@ -12,7 +12,7 @@ class ToDoModel {
     }
 
     public function getTasks(){
-        $query = $this->db->prepare("SELECT `task` FROM `task_list` WHERE `completed` = 0;");
+        $query = $this->db->prepare("SELECT `id`,`task` FROM `task_list` WHERE `completed` = 0;");
         $query->execute();
         return $query->fetchAll();
     }
