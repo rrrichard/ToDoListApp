@@ -2,6 +2,7 @@
 
 namespace ToDo\Controllers;
 
+use mysql_xdevapi\Exception;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use ToDo\Model\ToDoModel;
@@ -21,7 +22,8 @@ class AddToDoController {
     {
         $newTask = $request->getParsedBody();
         $newTaskText = $newTask['add_form'];
-        $this->toDoModel->addTasks($newTaskText);
+        $date = $newTask['date'];
+        $this->toDoModel->addTasks($newTaskText, $date);
         return $response->withRedirect('/');
     }
 }

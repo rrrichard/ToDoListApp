@@ -17,15 +17,18 @@ class ToDoModel {
         return $query->fetchAll();
     }
 
-    public function addTasks($newTask){
-        $query = $this->db->prepare("INSERT INTO `task_list` (`task`) VALUES (:newTask); ");
+    public function addTasks($newTask, $date){
+        $query = $this->db->prepare("INSERT INTO `task_list` (`task`,`deadline`) VALUES (:newTask, :date); ");
         $query->bindParam(':newTask', $newTask);
+        $query->bindParam(':date', $date);
         return $query->execute();
     }
 
-    public function completeTasks($completedId){
-        $query = $this->db->prepare("UPDATE `task_list` SET `completed` = '1' WHERE `id` = :completedId;");
-        $query->bindParam(':completedId', $completedId);
+    public function completeTasks($hiddenId){
+        $query = $this->db->prepare("UPDATE `task_list` SET `completed` = '1' WHERE `id` = :hiddenId;");
+        $query->bindParam(':hiddenId', $hiddenId);
         return $query->execute();
     }
+
+
 }

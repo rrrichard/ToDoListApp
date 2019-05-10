@@ -18,7 +18,7 @@ class CompleteToDoController {
     public function __invoke(Request $request, Response $response, $args)
     {
         $SelectedCompletedTask = $request->getParsedBody();
-        $completedTask = $SelectedCompletedTask['completedId'];
+        $completedTask = $SelectedCompletedTask['hiddenId'];
         $this->toDoModel->completeTasks($completedTask);
         return $response->withRedirect('/');
         // TODO: Implement __invoke() method.
