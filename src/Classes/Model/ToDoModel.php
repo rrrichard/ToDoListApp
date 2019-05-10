@@ -23,9 +23,15 @@ class ToDoModel {
         return $query->execute();
     }
 
-    public function completeTasks($completedId){
-        $query = $this->db->prepare("UPDATE `task_list` SET `completed` = '1' WHERE `id` = :completedId;");
-        $query->bindParam(':completedId', $completedId);
+    public function completeTasks($hiddenId){
+        $query = $this->db->prepare("UPDATE `task_list` SET `completed` = '1' WHERE `id` = :hiddenId;");
+        $query->bindParam(':completedId', $hiddenId);
         return $query->execute();
+    }
+
+    public function dateSelected($date, $hiddenId){
+        $query = $this->db->prepare("UPDATE `task_list` SET `deadline` = :date WHERE `id` = :hiddenId;");
+        $query->bindParam(':date', $date);
+        $query->bindParam(':hiddenId', $hiddenId);
     }
 }
