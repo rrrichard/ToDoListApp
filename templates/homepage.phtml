@@ -13,14 +13,17 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid">
     <div class="row">
-        <h1>Hello</h1>
-    </div>
-    <div class="row">
-        <div class="offset-sm-4 col-sm-4">
+        <div class="offset-sm-2 col-sm-8">
             <?php
             foreach($toDoModel as $task){
             $list = '<form method="POST" action="/completed">
@@ -29,9 +32,18 @@
                     <div class="col-4">
                         <input type="hidden" name="hiddenId" value="' . $task['id'] . '">
                     </div>
-                    <input class="btn btn-primary" type="date" name="date">
-                    <input class="btn btn-primary" type="submit" name="completed" value="Completed">              
+                    <input class="btn btn-primary" type="submit" name="completed" value="Completed">   
                 </div>
+            </form>
+            <form>
+                <div>Priority
+                </div>
+                <div>
+                    <input type="radio" name="priority" value="2">High Priority
+                    <input type="radio" name="priority" value="1" checked>Medium Priority  
+                    <input type="radio" name="priority" value="0" checked>Low Priority    
+                </div> 
+                <input class="btn btn-primary" type="submit" name="completed" value="Prioritise">
             </form>';
             echo $list;
             }
@@ -40,6 +52,7 @@
     </div>
     <form method="POST" action="/add">
         <textarea name="add_form"  required></textarea>
+        <input class="btn btn-primary" type="date" name="date" required>
         <div>
             <input type="submit" name="addSubmit" value="Add">
         </div>
