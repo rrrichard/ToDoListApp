@@ -9,7 +9,7 @@ return function (App $app) {
 
     $app->get('/', 'HomePageController');
     $app->post('/add', 'AddToDoController');
-    $app->post('/completed', );
+    $app->post('/completed','CompletedTask');
 
 //    $app->post('/', function ($request, $response, $args){
 //        $newTask = $request->getParam('add_form');
