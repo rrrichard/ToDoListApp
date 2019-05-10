@@ -17,6 +17,8 @@ return function (App $app) {
 
     $container['AddToDoController'] = new ToDo\Factories\AddToDoControllerFactory();
 
+    $container['CompletedTask'] = new ToDo\Factories\CompleteToDoControllerFactory();
+
     //db connection but more dynamic. the values are found in settings.php
     $container['dbConnection'] = function ($container) {
         $settings = $container->get('settings')['db'];

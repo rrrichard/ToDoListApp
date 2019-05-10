@@ -20,20 +20,20 @@
 </head>
 <body>
     <h1>Hello</h1>
-    <form>
+    <form method="POST" action="/completed">
     <?php
     foreach($toDoModel as $task){
-        $list = '<input type="checkbox" >' . $task['task'] . '<br><input type="hidden" value="' . $task['id'] . '">';
+        $list = '<input type="checkbox">' . $task['task'] . '<br><input type="hidden" name="completedId" value="' . $task['id'] . '">';
         echo $list;
     }
 
     ?>
-        <input type="submit" name="completed">
+        <input type="submit" name="completed" value="Completed">
     </form>
-    <form method="POST" action="/add"">
+    <form method="POST" action="/add">
         <textarea name="add_form"  required></textarea>
         <div>
-            <input type="submit" name="addSubmit">
+            <input type="submit" name="addSubmit" value="Add">
         </div>
     </form>
 </body>
