@@ -13,33 +13,79 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
-    <style>
-
-    </style>
 </head>
 <body>
-    <h1>Hello</h1>
-
-    <?php
-    foreach($toDoModel as $task){
-        $list = '<form method="POST" action="/completed">
-        <div class="row justify-content-md-center">
-            <div>' . $task['task'] . '</div>
-                <div class="col-4">
-                    <input type="hidden" name="completedId" value="' . $task['id'] . '">
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <h1>Hello</h1>
+    </div>
+    <div class="row">
+        <div class="offset-sm-4 col-sm-4">
+            <?php
+            foreach($toDoModel as $task){
+            $list = '<form method="POST" action="/completed">
+                <div class="row justify-content-md-center">
+                    <div>' . $task['task'] . '</div>
+                    <div class="col-4">
+                        <input type="hidden" name="completedId" value="' . $task['id'] . '">
+                    </div>
                     <input class="btn btn-primary" type="submit" name="completed" value="Completed">
+                </div>
+            </form>';
+            echo $list;
+            }
+            ?>
         </div>
-                </form>';
-        echo $list;
-    }
-
-    ?>
+    </div>
     <form method="POST" action="/add">
         <textarea name="add_form"  required></textarea>
         <div>
             <input type="submit" name="addSubmit" value="Add">
         </div>
     </form>
+
+</div>
 </body>
 </html>
+
+<?php
+//foreach($toDoModel as $task){
+//    $list = '<form method="POST" action="/completed">
+//        <div class="row justify-content-md-center">
+//            <div>' . $task['task'] . '</div>
+//                <div class="col-4">
+//                    <input type="hidden" name="completedId" value="' . $task['id'] . '">
+//                </div>
+//                    <input class="btn btn-primary" type="submit" name="completed" value="Completed">
+//        </div>
+//                </form>';
+//    echo $list;
+//}
+//
+
+//<form method="POST" action="/add">
+//        <textarea name="add_form"  required></textarea>
+//        <div>
+//            <input type="submit" name="addSubmit" value="Add">
+//        </div>
+//    </form>
+//?>
+
+<!--<table class="table">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th scope="col">#</th>-->
+<!--        <th scope="col">Task</th>-->
+<!--        <th scope="col">Data</th>-->
+<!--        <th scope="col">Completed</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr>-->
+<!--        <th scope="row">1</th>-->
+<!--        <td>Mark</td>-->
+<!--        <td>Otto</td>-->
+<!--        <td>@mdo</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
