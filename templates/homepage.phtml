@@ -22,13 +22,14 @@
 
     <?php
     foreach($toDoModel as $task){
-        $list = '<form method="POST" action="/completed">' . $task['task'] . '
-        <div class="row justify-content-between">
-            <div class="col-4">
-                <input type="hidden" name="completedId" value="' . $task['id'] . '">
-            </div>
-                <input class="btn btn-primary" type="submit" name="completed" value="Completed">
-         </div>
+        $list = '<form method="POST" action="/completed">
+        <div class="row justify-content-md-center">
+            <div>' . $task['task'] . '</div>
+                <div class="col-4">
+                    <input type="hidden" name="completedId" value="' . $task['id'] . '">
+                </div>
+                    <input class="btn btn-primary" type="submit" name="completed" value="Completed">
+        </div>
                 </form>';
         echo $list;
     }
