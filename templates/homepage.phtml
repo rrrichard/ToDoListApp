@@ -21,43 +21,48 @@
     </style>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="offset-sm-2 col-sm-8">
-            <?php
-            foreach($toDoModel as $task){
-            $list = '<form method="POST" action="/completed">
-                <div class="row justify-content-md-center">
-                    <div>' . $task['task'] . '</div>
-                    <div class="col-4">
-                        <input type="hidden" name="hiddenId" value="' . $task['id'] . '">
-                    </div>
-                    <input class="btn btn-primary" type="submit" name="completed" value="Completed">   
-                </div>
-            </form>
-            <form>
-                <div>Priority
-                </div>
-                <div>
-                    <input type="radio" name="priority" value="2">High Priority
-                    <input type="radio" name="priority" value="1" checked>Medium Priority  
-                    <input type="radio" name="priority" value="0" checked>Low Priority    
-                </div> 
-                <input class="btn btn-primary" type="submit" name="completed" value="Prioritise">
-            </form>';
-            echo $list;
-            }
-            ?>
-        </div>
+<h2 class="todo">TO DO APP</h2>
+<div class="box">
+    <div class="tasks">
+        <?php
+        foreach($toDoModel as $task){
+        $list = '<form method="POST" action="/completed">
+            <div class="container">
+                <div class="task">' . $task['task'] . ' </div>
+                <div class="deadline"><span class="deadlineText">Deadline: </span>' . $task['deadline'] . '</div>
+                    <input type="hidden" name="hiddenId" value="' . $task['id'] . '">
+                <input class="completed button" type="submit" name="completed" value="Completed">   
+            </div>
+        </form>
+        <form method="POST" action="/prioritise">
+            <div class="container">
+            </div>
+            <div>
+            <input type="hidden" name="hiddenId" value="' . $task['id'] . '">
+                <input class="radio" type="radio" name="priority" value="2">High Priority
+                <input class="radio" type="radio" name="priority" value="1" checked>Medium Priority  
+                <input class="radio" type="radio" name="priority" value="0" checked>Low Priority    
+            </div> 
+            <div>
+                <input class="prioritise button" type="submit" name="completed" value="Prioritise">
+            </div>
+        </form>
+        <br>';
+        echo $list;
+        }
+        ?>
     </div>
-    <form method="POST" action="/add">
-        <textarea name="add_form"  required></textarea>
-        <input class="btn btn-primary" type="date" name="date" required>
-        <div>
-            <input type="submit" name="addSubmit" value="Add">
-        </div>
-    </form>
-
+    <div class="addInput">
+        <form method="POST" action="/add">
+            <div class="container">
+                <div>
+                    <textarea name="add_form" placeholder="Add task here!" required></textarea>
+                </div>
+                <input class="" type="date" name="date" required>
+                <input type="submit" name="addSubmit" value="Add">
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>
