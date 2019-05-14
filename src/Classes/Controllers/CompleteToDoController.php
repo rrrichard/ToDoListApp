@@ -21,6 +21,5 @@ class CompleteToDoController {
         $completedTask = $SelectedCompletedTask['hiddenId'];
         $this->toDoModel->completeTasks($completedTask);
         return $response->withRedirect('/');
-        // TODO: Implement __invoke() method.
     }
 }
