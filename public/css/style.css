@@ -1,5 +1,67 @@
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0 auto;
     text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+
+.todo {
+    margin: 10px;
+    font-size: 48px;
+    letter-spacing: 2px;
+}
+
+.tasks {
+    float: left;
+    width: 500px;
+    margin-left: 15%;
+    margin-top: 50px;
+}
+
+.task {
+    height: 100px;
+    /*background-color: lightslategrey;*/
+    padding: 5px;
+    font-size: 18px;
+    border: 2px solid lightslategrey;
+}
+
+.deadlineText {
+    font-weight: bold;
+    color: red;
+}
+
+.radio {
+    margin: 0 5px;
+}
+
+.addInput textarea{
+    height: 150px;
+    width: 300px;
+    margin-top: 15%;
+}
+
+.completed {
+    background-color: forestgreen;
+    color: white;
+    border: 1px solid black;
+}
+
+.prioritise {
+    background-color: steelblue;
+    color: white;
+    border: 1px solid black;
+}
+
+@media only screen and (max-width:550px) {
+    .tasks {
+        margin: 0;
+    }
+
+    .addInput textarea{
+        margin: 0 auto;
+    }
 }
