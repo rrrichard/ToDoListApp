@@ -10,5 +10,6 @@ return function (App $app) {
     $app->get('/', 'HomePageController');
     $app->post('/add', 'AddToDoController');
     $app->post('/completed','CompletedTask');
+    $app->post('/prioritise','PrioritiseTask');
 
 };
