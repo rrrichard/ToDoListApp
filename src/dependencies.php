@@ -19,6 +19,8 @@ return function (App $app) {
 
     $container['CompletedTask'] = new ToDo\Factories\CompleteToDoControllerFactory();
 
+    $container['PrioritiseTask'] = new ToDo\Factories\PrioritiseControllerFactory();
+
     //db connection but more dynamic. the values are found in settings.php
     $container['dbConnection'] = function ($container) {
         $settings = $container->get('settings')['db'];
