@@ -12,7 +12,7 @@ class ToDoModel {
     }
 
     public function getTasks(){
-        $query = $this->db->prepare("SELECT `id`,`task` FROM `task_list` WHERE `completed` = 0;");
+        $query = $this->db->prepare("SELECT `id`,`task`, `deadline` FROM `task_list` WHERE `completed` = 0 ORDER BY `priority` DESC;");
         $query->execute();
         return $query->fetchAll();
     }
@@ -30,5 +30,11 @@ class ToDoModel {
         return $query->execute();
     }
 
+    public function prioritiseTasks($priorityId, $hiddenId){
+        $query = $this->db->prepare("UPDATE `task_list` SET `priority` = :priorityId WHERE `id` = :hiddenId;");
+        $query->bindParam(':priorityId', $priorityId);
+        $query->bindParam(':hiddenId', $hiddenId);
+        return $query->execute();
+    }
 
 }
